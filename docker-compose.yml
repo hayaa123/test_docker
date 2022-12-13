@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  db:
+
+    image: postgres
+
+    environment:
+
+      - POSTGRES_DB=django.db.backends.postgresql
+
+      - POSTGRES_USER=kuvhpvln
+
+      - POSTGRES_PASSWORD=g3brsC5xXW1lDDNzcaTolRq8SnhTGSJT
+
+  web:
+
+    build: .
+
+    command: python manage.py runserver 0.0.0.0:8000
+
+    volumes:
+
+      - .:/code
+
+    ports:
+
+      - "8000:8000"
+
+    depends_on:
+
+      - db
